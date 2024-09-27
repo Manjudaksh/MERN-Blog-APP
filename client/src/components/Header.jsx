@@ -22,7 +22,7 @@ export default function Header() {
           className='hidden lg:inline'
         />
       </form>
-      <Button className='w-12 h-10 lg:hidden'  color='gray'>
+      <Button className='w-12 h-10 lg:hidden'  color='gray' pill>
       <AiOutlineSearch/>
       </Button>
       <div className='flex gap-2 md:order-2'>
@@ -30,7 +30,7 @@ export default function Header() {
           <FaMoon/>
         </Button>
         <Link to='/sign-in'>
-          <Button gradientDuoTone='purpleToBlue' pill>
+          <Button gradientDuoTone='purpleToBlue' outline>
             Sign In
           </Button>
         </Link>
