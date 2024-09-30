@@ -4,8 +4,14 @@ import bcryptjs from 'bcryptjs';
 export const signup = async(req, res) => {
     const { username, email, password } = req.body;
 
-    if(!username || !email || !password || username === '' || password === '' || email === ''){
-        return  res.status(400).json({meassage: 'All fields are required'});
+    if(!username ||
+        !email ||
+        !password ||
+        username === '' ||
+        password === '' ||
+        email === '')
+        {
+        next(errorHeader(400, 'All fields are required'));
     }
 
     const hashedPassword = bcryptjs.hashSync(password, 10); 
@@ -20,7 +26,7 @@ export const signup = async(req, res) => {
         await newUser.save();
         res.json('signup successfuly');
     } catch(error){
-        res.status(500).json('please fill all details properly');
+        next(error);
     }
 
    
